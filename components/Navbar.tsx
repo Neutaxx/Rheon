@@ -7,7 +7,7 @@ const navLinks = [
   { name: 'Inicio', path: '/inicio' },
   { name: 'Precios', path: '/precios' },
   { name: 'Nosotros', path: '/nosotros' },
-  { name: 'Proyectos', path: '/proyectos' },
+  { name: 'Webs realizadas', path: '/webs-realizadas' },
 ];
 
 const Navbar: React.FC = () => {
@@ -37,14 +37,13 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <header 
-      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-        scrolled ? 'bg-brand-bg/90 backdrop-blur-xl border-b border-white/5 py-4' : 'bg-transparent py-6'
-      }`}
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${scrolled && !isOpen ? 'bg-brand-bg/90 backdrop-blur-xl border-b border-white/5 py-4' : 'bg-transparent py-6'
+        }`}
     >
       <div className="container mx-auto px-6 flex justify-between items-center">
-        <Link 
-          to="/" 
+        <Link
+          to="/"
           onClick={handleLogoClick}
           className="text-2xl font-bold tracking-tighter z-50 relative group"
         >
@@ -57,21 +56,20 @@ const Navbar: React.FC = () => {
             <Link
               key={link.path}
               to={link.path}
-              className={`text-sm font-medium tracking-wide transition-colors relative hover:text-brand-primary ${
-                isActive(link.path) ? 'text-white' : 'text-gray-400'
-              }`}
+              className={`text-sm font-medium tracking-wide transition-colors relative hover:text-brand-primary ${isActive(link.path) ? 'text-white' : 'text-gray-400'
+                }`}
             >
               {link.name}
               {isActive(link.path) && (
-                <motion.div 
+                <motion.div
                   layoutId="underline"
-                  className="absolute -bottom-1 left-0 right-0 h-0.5 bg-brand-primary rounded-full" 
+                  className="absolute -bottom-1 left-0 right-0 h-0.5 bg-brand-primary rounded-full"
                 />
               )}
             </Link>
           ))}
-          <Link 
-            to="/contacto" 
+          <Link
+            to="/contacto"
             className="px-6 py-2.5 bg-white text-black rounded-full text-sm font-bold hover:bg-brand-primary hover:text-white transition-all duration-300 transform hover:scale-105"
           >
             Realizar cotización
@@ -79,8 +77,8 @@ const Navbar: React.FC = () => {
         </nav>
 
         {/* Mobile Toggle */}
-        <button 
-          onClick={() => setIsOpen(!isOpen)} 
+        <button
+          onClick={() => setIsOpen(!isOpen)}
           className="md:hidden z-50 text-white focus:outline-none"
         >
           {isOpen ? <X size={28} /> : <Menu size={28} />}
@@ -101,15 +99,14 @@ const Navbar: React.FC = () => {
                   <Link
                     key={link.path}
                     to={link.path}
-                    className={`text-3xl font-bold tracking-tight ${
-                      isActive(link.path) ? 'text-brand-primary' : 'text-white'
-                    }`}
+                    className={`text-3xl font-bold tracking-tight ${isActive(link.path) ? 'text-brand-primary' : 'text-white'
+                      }`}
                   >
                     {link.name}
                   </Link>
                 ))}
-                <Link 
-                  to="/contacto" 
+                <Link
+                  to="/contacto"
                   className="mt-8 px-8 py-4 bg-brand-primary text-white text-xl rounded-full font-bold"
                 >
                   Realizar cotización

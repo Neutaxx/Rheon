@@ -6,6 +6,8 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 
 import IntroVideo from '../Fotos/rheonintrovideo.mp4';
 import ProyectopoliImg from '../Fotos/PoliPagina.jpg';
+import ShinseilabImg from '../Fotos/Shinseilab.png';
+import CrecerConBrilloImg from '../Fotos/Crecerconbrillo.png';
 
 const Home: React.FC = () => {
   const targetRef = useRef<HTMLDivElement>(null);
@@ -13,33 +15,28 @@ const Home: React.FC = () => {
     target: targetRef,
   });
 
-  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-65%"]);
+  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-85%"]);
 
   const featuredProjects = [
     {
-      client: "Semillero de comunicación y prácticas digitales",
+      title: "Shinseilab",
+      category: "Restaurante de Sushi",
+      image: ShinseilabImg,
+      link: "https://shinseisushilab.onrender.com/"
+    },
+    {
+      title: "Semillero de comunicación y prácticas digitales",
       category: "SEMILLERO POLITECNICO GRANCOLOMBIANO",
       image: ProyectopoliImg,
-      link: "/proyectos"
+      link: "https://semillero-comunicaci-n-digitales.onrender.com/index.html"
     },
     {
-      title: "Aura Wellness",
-      category: "E-Commerce SPA",
-      image: "https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=2500&auto=format&fit=crop",
-      link: "/proyectos"
-    },
-    {
-      title: "Cyberpunk Hub",
-      category: "Web3 & NFT",
-      image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop",
-      link: "/proyectos"
-    },
-    {
-      title: "RHEON® Labs",
-      category: "Experimental",
-      image: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=2670&auto=format&fit=crop",
-      link: "/proyectos"
+      title: "Crecer con brillo propio",
+      category: "Concientización Social",
+      image: CrecerConBrilloImg,
+      link: "https://brillopropio.onrender.com/"
     }
+
   ];
 
   return (
@@ -82,7 +79,7 @@ const Home: React.FC = () => {
             initial={{ opacity: 0, scale: 0.9, y: 30 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative w-full aspect-video md:aspect-[4/3] rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-purple-900/20 group"
+            className="relative w-full aspect-video rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-purple-900/20 group"
           >
             <video
               src={IntroVideo}
@@ -298,8 +295,8 @@ const Home: React.FC = () => {
                 whileInView={{ opacity: 1 }}
                 className="text-6xl md:text-8xl font-bold mb-6"
               >
-                Trabajo <br />
-                <span className="text-brand-primary">Reciente</span>
+                Trabajos <br />
+                <span className="text-brand-primary">Recientes</span>
               </motion.h2>
               <p className="text-gray-400 text-xl max-w-md mb-8">
                 Explora cómo transformamos ideas en experiencias digitales tangibles.
@@ -312,7 +309,7 @@ const Home: React.FC = () => {
             {featuredProjects.map((project, index) => (
               <motion.div
                 key={index}
-                className="relative h-[60vh] min-w-[80vw] md:min-w-[45vw] rounded-3xl overflow-hidden border border-white/10 group cursor-none"
+                className={`relative h-[60vh] min-w-[80vw] md:min-w-[45vw] rounded-3xl overflow-hidden border border-white/10 group ${project.link ? 'cursor-none' : ''}`}
                 whileHover={{ scale: 0.98 }}
                 transition={{ duration: 0.3 }}
               >
@@ -325,19 +322,21 @@ const Home: React.FC = () => {
                 <div className="absolute bottom-0 left-0 p-8 z-20 w-full bg-gradient-to-t from-black/90 to-transparent">
                   <span className="text-brand-primary font-bold uppercase tracking-wider text-sm mb-2 block">{project.category}</span>
                   <h3 className="text-4xl font-bold text-white mb-6">{project.title}</h3>
-                  <Link
-                    to={project.link}
-                    className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-full text-white hover:bg-white hover:text-black transition-all"
-                  >
-                    Ver más <ArrowUpRight size={18} />
-                  </Link>
+                  {project.link && (
+                    <Link
+                      to={project.link}
+                      className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-full text-white hover:bg-white hover:text-black transition-all"
+                    >
+                      Ver más <ArrowUpRight size={18} />
+                    </Link>
+                  )}
                 </div>
               </motion.div>
             ))}
 
             <div className="flex flex-col justify-center min-w-[30vw] pl-12">
-              <Link to="/proyectos" className="text-6xl font-bold text-gray-700 hover:text-white transition-colors duration-300">
-                Ver todos <br /> los proyectos &rarr;
+              <Link to="/webs-realizadas" className="text-6xl font-bold text-gray-700 hover:text-white transition-colors duration-300">
+                Ver todas <br /> las webs realizadas &rarr;
               </Link>
             </div>
           </motion.div>

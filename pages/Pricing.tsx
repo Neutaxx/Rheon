@@ -52,15 +52,15 @@ const Pricing: React.FC = () => {
         <div className="text-center mb-16">
           <h1 className="text-5xl md:text-7xl font-bold mb-6">Planes <span className="text-brand-primary">transparentes</span></h1>
           <p className="text-xl text-gray-400 mb-8">Diseño profesional y estructura técnica de alto nivel.</p>
-          
+
           <div className="inline-flex bg-white/5 p-1 rounded-full border border-white/10">
-             <button className="px-6 py-2 rounded-full bg-brand-primary text-white text-sm font-bold">Pago Único</button>
+            <button className="px-6 py-2 rounded-full bg-brand-primary text-white text-sm font-bold">Pago Único</button>
           </div>
         </div>
 
         {/* PRICING CARDS */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start max-w-7xl mx-auto mb-32">
-          
+
           {/* Basic Plan */}
           <TiltCard className="group relative bg-[#110e22] border border-white/10 rounded-[2rem] p-8 hover:border-brand-primary/30 transition-all duration-300">
             <div className="mb-8 border-b border-white/10 pb-6">
@@ -71,7 +71,7 @@ const Pricing: React.FC = () => {
               </div>
               <p className="text-sm text-gray-400 leading-relaxed">Perfecto para landing pages (una sola página) de alta conversión.</p>
             </div>
-            
+
             <div className="space-y-4 mb-8">
               {[
                 "Página web de una sección",
@@ -79,13 +79,13 @@ const Pricing: React.FC = () => {
                 "Botón flotante de WhatsApp",
                 "Formulario de contacto funcional",
                 "Optimización básica (Velocidad + SEO)",
-                "Tiempo de entrega: 1 día hábil"
+                "Tiempo de entrega: 1-2 días hábiles"
               ].map((feature, i) => (
                 <div key={i} className="flex items-start gap-3">
-                   <div className="shrink-0 w-5 h-5 rounded-full border border-white/20 flex items-center justify-center text-brand-primary group-hover:bg-brand-primary group-hover:text-white group-hover:border-transparent transition-all mt-0.5">
-                     <Check size={12} />
-                   </div>
-                   <span className="text-sm text-gray-300">{feature}</span>
+                  <div className="shrink-0 w-5 h-5 rounded-full border border-white/20 flex items-center justify-center text-brand-primary group-hover:bg-brand-primary group-hover:text-white group-hover:border-transparent transition-all mt-0.5">
+                    <Check size={12} />
+                  </div>
+                  <span className="text-sm text-gray-300">{feature}</span>
                 </div>
               ))}
             </div>
@@ -108,7 +108,7 @@ const Pricing: React.FC = () => {
               </div>
               <p className="text-sm text-gray-400 leading-relaxed">Sitio web multipágina completo con diseño y funciones avanzadas.</p>
             </div>
-            
+
             <div className="space-y-4 mb-8">
               {[
                 "Sitio multipágina (Hasta 5 págs)",
@@ -121,10 +121,10 @@ const Pricing: React.FC = () => {
                 "Tiempo de entrega: 2 – 3 días hábiles"
               ].map((feature, i) => (
                 <div key={i} className="flex items-start gap-3">
-                   <div className="shrink-0 w-5 h-5 rounded-full bg-brand-primary flex items-center justify-center text-white mt-0.5">
-                     <Check size={12} />
-                   </div>
-                   <span className="text-sm text-gray-300">{feature}</span>
+                  <div className="shrink-0 w-5 h-5 rounded-full bg-brand-primary flex items-center justify-center text-white mt-0.5">
+                    <Check size={12} />
+                  </div>
+                  <span className="text-sm text-gray-300">{feature}</span>
                 </div>
               ))}
             </div>
@@ -143,7 +143,7 @@ const Pricing: React.FC = () => {
               </div>
               <p className="text-sm text-gray-400 leading-relaxed">Para proyectos a gran escala que requieren soluciones a medida.</p>
             </div>
-            
+
             <div className="space-y-4 mb-8">
               {[
                 "Sitios a gran escala",
@@ -154,10 +154,10 @@ const Pricing: React.FC = () => {
                 "Estrategia UX Profunda"
               ].map((feature, i) => (
                 <div key={i} className="flex items-start gap-3">
-                   <div className="shrink-0 w-5 h-5 rounded-full border border-white/20 flex items-center justify-center text-brand-primary group-hover:bg-brand-primary group-hover:text-white group-hover:border-transparent transition-all mt-0.5">
-                     <Check size={12} />
-                   </div>
-                   <span className="text-sm text-gray-300">{feature}</span>
+                  <div className="shrink-0 w-5 h-5 rounded-full border border-white/20 flex items-center justify-center text-brand-primary group-hover:bg-brand-primary group-hover:text-white group-hover:border-transparent transition-all mt-0.5">
+                    <Check size={12} />
+                  </div>
+                  <span className="text-sm text-gray-300">{feature}</span>
                 </div>
               ))}
             </div>
@@ -170,17 +170,17 @@ const Pricing: React.FC = () => {
 
         {/* VALUE ADDED SECTION */}
         <div className="max-w-4xl mx-auto mb-24">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="p-8 md:p-12 rounded-[2rem] bg-gradient-to-r from-[#16132b] to-[#0E0B1E] border border-white/10 text-center relative overflow-hidden"
           >
             <div className="absolute top-0 right-0 w-64 h-64 bg-brand-primary/10 rounded-full blur-[80px]"></div>
-            
+
             <div className="relative z-10">
               <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-white/5 mb-6 text-brand-primary">
-                 <ShieldCheck size={32} />
+                <ShieldCheck size={32} />
               </div>
               <h2 className="text-3xl font-bold mb-4">Nuestro valor <span className="text-brand-primary">añadido</span></h2>
               <p className="text-lg text-gray-400 max-w-2xl mx-auto mb-8">
@@ -192,36 +192,36 @@ const Pricing: React.FC = () => {
 
         {/* COST INFO & ADVISORY */}
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24">
-           <motion.div
-             initial={{ opacity: 0, x: -20 }}
-             whileInView={{ opacity: 1, x: 0 }}
-             viewport={{ once: true }}
-           >
-             <div className="flex items-center gap-3 mb-4 text-brand-primary">
-               <Calculator size={24} />
-               <h3 className="text-xl font-bold uppercase tracking-wider">¿Cuánto cuesta realmente una página web?</h3>
-             </div>
-             <p className="text-gray-400 leading-relaxed mb-4">
-               El costo final depende del alcance: número de secciones, funcionalidades personalizadas (reservas, pagos, usuarios) y nivel de diseño. Nuestros planes están estructurados para cubrir las necesidades más comunes con la mejor relación calidad-precio.
-             </p>
-           </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+          >
+            <div className="flex items-center gap-3 mb-4 text-brand-primary">
+              <Calculator size={24} />
+              <h3 className="text-xl font-bold uppercase tracking-wider">¿Cuánto cuesta realmente una página web?</h3>
+            </div>
+            <p className="text-gray-400 leading-relaxed mb-4">
+              El costo final depende del alcance: número de secciones, funcionalidades personalizadas (reservas, pagos, usuarios) y nivel de diseño. Nuestros planes están estructurados para cubrir las necesidades más comunes con la mejor relación calidad-precio.
+            </p>
+          </motion.div>
 
-           <motion.div
-             initial={{ opacity: 0, x: 20 }}
-             whileInView={{ opacity: 1, x: 0 }}
-             viewport={{ once: true }}
-           >
-             <div className="flex items-center gap-3 mb-4 text-brand-primary">
-               <Sparkles size={24} />
-               <h3 className="text-xl font-bold uppercase tracking-wider">Te asesoramos antes de empezar</h3>
-             </div>
-             <p className="text-gray-400 leading-relaxed mb-6">
-               Cada proyecto es único. Si no estás seguro de qué plan técnico se adapta a tu negocio, escríbenos. Analizaremos tus requerimientos para ofrecerte una solución justa y escalable.
-             </p>
-             <Link to="/contacto" className="text-white border-b border-brand-primary pb-1 hover:text-brand-primary transition-colors font-bold inline-flex items-center gap-2">
-               Hablar con un experto <Check size={14} />
-             </Link>
-           </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+          >
+            <div className="flex items-center gap-3 mb-4 text-brand-primary">
+              <Sparkles size={24} />
+              <h3 className="text-xl font-bold uppercase tracking-wider">Te asesoramos antes de empezar</h3>
+            </div>
+            <p className="text-gray-400 leading-relaxed mb-6">
+              Cada proyecto es único. Si no estás seguro de qué plan técnico se adapta a tu negocio, escríbenos. Analizaremos tus requerimientos para ofrecerte una solución justa y escalable.
+            </p>
+            <Link to="/contacto" className="text-white border-b border-brand-primary pb-1 hover:text-brand-primary transition-colors font-bold inline-flex items-center gap-2">
+              Hablar con un experto <Check size={14} />
+            </Link>
+          </motion.div>
         </div>
 
       </div>

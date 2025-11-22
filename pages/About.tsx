@@ -23,7 +23,7 @@ const team = [
   {
     name: "Michel Plazas",
     role: "UI & Branding",
-    desc: "Creadora de identidad visual y estética.",
+    desc: "Creador de identidad visual y estética.",
     image: MichelImg
   }
 ];
