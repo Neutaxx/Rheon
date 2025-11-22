@@ -22,19 +22,19 @@ const Home: React.FC = () => {
       title: "Shinseilab",
       category: "Restaurante de Sushi",
       image: ShinseilabImg,
-      link: "https://shinseisushilab.onrender.com/"
+      link: "/webs-realizadas"
     },
     {
       title: "Semillero de comunicación y prácticas digitales",
       category: "SEMILLERO POLITECNICO GRANCOLOMBIANO",
       image: ProyectopoliImg,
-      link: "https://semillero-comunicaci-n-digitales.onrender.com/index.html"
+      link: "/webs-realizadas"
     },
     {
       title: "Crecer con brillo propio",
       category: "Concientización Social",
       image: CrecerConBrilloImg,
-      link: "https://brillopropio.onrender.com/"
+      link: "/webs-realizadas"
     }
 
   ];
