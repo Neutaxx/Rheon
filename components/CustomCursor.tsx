@@ -12,7 +12,29 @@ const CustomCursor: React.FC = () => {
   // const cursorXSpring = useSpring(cursorX, springConfig);
   // const cursorYSpring = useSpring(cursorY, springConfig);
 
+  const [isVisible, setIsVisible] = useState(false);
+
   useEffect(() => {
+    // Check if device supports hover (mouse)
+    const checkDevice = () => {
+      if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+        setIsVisible(true);
+      } else {
+        setIsVisible(false);
+      }
+    };
+
+    checkDevice();
+    window.addEventListener('resize', checkDevice);
+
+    return () => {
+      window.removeEventListener('resize', checkDevice);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!isVisible) return;
+
     const moveCursor = (e: MouseEvent) => {
       cursorX.set(e.clientX);
       cursorY.set(e.clientY);
@@ -39,7 +61,9 @@ const CustomCursor: React.FC = () => {
       window.removeEventListener('mousemove', moveCursor);
       window.removeEventListener('mouseover', handleMouseOver);
     };
-  }, [cursorX, cursorY]);
+  }, [cursorX, cursorY, isVisible]);
+
+  if (!isVisible) return null;
 
   return (
     <>
