@@ -64,6 +64,7 @@ const Navbar: React.FC = () => {
                 {isActive(link.path) && (
                   <motion.div
                     layoutId="underline"
+                    initial={false}
                     className="absolute -bottom-1 left-0 right-0 h-0.5 bg-brand-primary rounded-full"
                   />
                 )}

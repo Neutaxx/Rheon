@@ -292,8 +292,8 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* HORIZONTAL SCROLL PROJECTS (SCROLL HIJACKING) */}
-      <section ref={targetRef} className="relative h-[300vh] bg-brand-bg">
+      {/* HORIZONTAL SCROLL PROJECTS (DESKTOP ONLY) */}
+      <section ref={targetRef} className="relative h-[300vh] bg-brand-bg hidden md:block">
         <div className="sticky top-0 flex h-screen items-center overflow-hidden">
           <motion.div style={{ x }} className="flex gap-16 px-16">
             <div className="flex flex-col justify-center min-w-[30vw] md:min-w-[40vw] pr-12">
@@ -347,6 +347,67 @@ const Home: React.FC = () => {
               </Link>
             </div>
           </motion.div>
+        </div>
+      </section>
+
+      {/* MOBILE VERSION: VERTICAL CARDS */}
+      <section className="py-24 bg-brand-bg md:hidden">
+        <div className="container mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-12"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+              Trabajos <br />
+              <span className="text-brand-primary">Recientes</span>
+            </h2>
+            <p className="text-gray-400 text-lg">
+              Explora cómo transformamos ideas en experiencias digitales tangibles.
+            </p>
+          </motion.div>
+
+          <div className="space-y-8">
+            {featuredProjects.map((project, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="relative h-[400px] rounded-2xl overflow-hidden border border-white/10"
+              >
+                <div className="absolute inset-0 bg-black/40 z-10"></div>
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute bottom-0 left-0 p-6 z-20 w-full bg-gradient-to-t from-black/90 to-transparent">
+                  <span className="text-brand-primary font-bold uppercase tracking-wider text-xs mb-2 block">{project.category}</span>
+                  <h3 className="text-2xl font-bold text-white mb-4">{project.title}</h3>
+                  {project.link && (
+                    <Link
+                      to={project.link}
+                      className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/10 backdrop-blur-md border border-white/20 rounded-full text-white text-sm"
+                    >
+                      Ver más <ArrowUpRight size={16} />
+                    </Link>
+                  )}
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          <div className="mt-12 text-center">
+            <Link
+              to="/webs-realizadas"
+              className="inline-flex items-center gap-2 text-xl font-bold text-gray-400 hover:text-white transition-colors"
+            >
+              Ver todas las webs realizadas <ArrowRight size={24} />
+            </Link>
+          </div>
         </div>
       </section>
 
