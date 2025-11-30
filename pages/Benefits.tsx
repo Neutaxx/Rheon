@@ -1,6 +1,8 @@
+
 import React from 'react';
 import PageWrapper from '../components/PageWrapper';
-import { Banknote, MessageSquare, Clock, ShieldCheck, Rocket } from 'lucide-react';
+import { Zap, ShieldCheck, Smartphone, Search, MousePointerClick, Rocket, Banknote, MessageSquare, Clock } from 'lucide-react';
+import SEO from '../components/SEO';
 import { motion, Variants } from 'framer-motion';
 
 const Benefits: React.FC = () => {
@@ -16,17 +18,21 @@ const Benefits: React.FC = () => {
 
   const item: Variants = {
     hidden: { opacity: 0, y: 50 },
-    show: { 
-      opacity: 1, 
-      y: 0, 
-      transition: { type: "spring", stiffness: 50 } 
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: { type: "spring", stiffness: 50 }
     }
   };
 
   return (
     <PageWrapper className="pt-32 pb-20">
+      <SEO
+        title="Beneficios | Por qué elegir RHEON®"
+        description="Descubre por qué somos la mejor opción para tu diseño web en Colombia. Velocidad, estética y estrategia digital enfocada en ventas."
+      />
       <div className="container mx-auto px-6">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           className="text-center mb-24"
@@ -38,7 +44,7 @@ const Benefits: React.FC = () => {
           </p>
         </motion.div>
 
-        <motion.div 
+        <motion.div
           variants={container}
           initial="hidden"
           animate="show"
@@ -86,31 +92,31 @@ const Benefits: React.FC = () => {
 
         {/* Secondary Benefits Grid */}
         <div className="mt-24 grid grid-cols-1 md:grid-cols-2 gap-8">
-            <motion.div 
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="p-8 rounded-3xl border border-white/5 bg-gradient-to-br from-white/5 to-transparent flex items-start gap-6"
-            >
-              <ShieldCheck className="text-brand-primary shrink-0" size={32} />
-              <div>
-                <h4 className="text-xl font-bold mb-2">Seguridad Garantizada</h4>
-                <p className="text-gray-400 text-sm">Implementamos certificados SSL y buenas prácticas de seguridad en cada entrega.</p>
-              </div>
-            </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="p-8 rounded-3xl border border-white/5 bg-gradient-to-br from-white/5 to-transparent flex items-start gap-6"
+          >
+            <ShieldCheck className="text-brand-primary shrink-0" size={32} />
+            <div>
+              <h4 className="text-xl font-bold mb-2">Seguridad Garantizada</h4>
+              <p className="text-gray-400 text-sm">Implementamos certificados SSL y buenas prácticas de seguridad en cada entrega.</p>
+            </div>
+          </motion.div>
 
-            <motion.div 
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="p-8 rounded-3xl border border-white/5 bg-gradient-to-br from-white/5 to-transparent flex items-start gap-6"
-            >
-              <Rocket className="text-brand-primary shrink-0" size={32} />
-              <div>
-                <h4 className="text-xl font-bold mb-2">SEO Ready</h4>
-                <p className="text-gray-400 text-sm">Tu sitio nace optimizado para Google. Estructura semántica correcta y carga rápida.</p>
-              </div>
-            </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="p-8 rounded-3xl border border-white/5 bg-gradient-to-br from-white/5 to-transparent flex items-start gap-6"
+          >
+            <Rocket className="text-brand-primary shrink-0" size={32} />
+            <div>
+              <h4 className="text-xl font-bold mb-2">SEO Ready</h4>
+              <p className="text-gray-400 text-sm">Tu sitio nace optimizado para Google. Estructura semántica correcta y carga rápida.</p>
+            </div>
+          </motion.div>
         </div>
       </div>
     </PageWrapper>

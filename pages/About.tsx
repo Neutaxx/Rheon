@@ -2,10 +2,10 @@ import React from 'react';
 import PageWrapper from '../components/PageWrapper';
 import { motion } from 'framer-motion';
 import { Target, Eye, Zap, Layout, TrendingUp } from 'lucide-react';
+import SEO from '../components/SEO';
 
 import JuanImg from '../Fotos/JuanNeuta.jpeg';
-import SamuelImg from '../Fotos/SamuelBocanegra.jpeg';
-import MichelImg from '../Fotos/MichelPlazas.jpeg';
+import SamuelImg from '../Fotos/SamuelBocanegra.jpg';
 
 const team = [
   {
@@ -17,20 +17,18 @@ const team = [
   {
     name: "Samuel Bocanegra",
     role: "Desarrollador Web",
-    desc: "Experto en código limpio y rendimiento.",
-    image: SamuelImg
-  },
-  {
-    name: "Michel Plazas",
-    role: "UI & Branding",
     desc: "Creador de identidad visual y estética.",
-    image: MichelImg
+    image: SamuelImg
   }
 ];
 
 const About: React.FC = () => {
   return (
     <PageWrapper className="pt-32 pb-20">
+      <SEO
+        title="Nosotros | RHEON® Agencia Digital Colombia"
+        description="Conoce al equipo detrás de RHEON®. Expertos en diseño UI/UX y desarrollo web en Bogotá, comprometidos con elevar el estándar digital en Colombia."
+      />
       <div className="container mx-auto px-6">
 
         <div className="max-w-4xl mx-auto text-center mb-24">
@@ -125,7 +123,7 @@ const About: React.FC = () => {
         <div className="mb-16">
           <h2 className="text-4xl font-bold mb-16 text-center">Equipo <span className="text-brand-primary">RHEON®</span></h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {team.map((member, index) => (
               <motion.div
                 key={index}

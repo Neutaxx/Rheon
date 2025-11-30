@@ -1,12 +1,15 @@
+
 import React from 'react';
 import PageWrapper from '../components/PageWrapper';
-import { ArrowUpRight } from 'lucide-react';
+import { ExternalLink, ArrowRight, Github, Globe, ArrowUpRight } from 'lucide-react';
 import { motion } from 'framer-motion';
+import SEO from '../components/SEO';
 
 import ProyectopoliImg from '../Fotos/PoliPagina.jpg';
 
 import ShinseilabImg from '../Fotos/Shinseilab.png';
 import CrecerConBrilloImg from '../Fotos/Crecerconbrillo.png';
+import GloriarteImg from '../Fotos/gloriarte.jpeg';
 
 const projects = [
   {
@@ -15,6 +18,13 @@ const projects = [
     image: ShinseilabImg,
     size: "large",
     link: "https://shinseisushilab.onrender.com/"
+  },
+  {
+    client: "Gloriarte",
+    category: "Tienda de crochet",
+    image: GloriarteImg,
+    size: "normal",
+    link: "https://www.gloriartemanualidades.com"
   },
   {
     client: "Semillero de comunicación y prácticas digitales",
@@ -27,35 +37,18 @@ const projects = [
     client: "Crecer con brillo propio",
     category: "Concientización Social",
     image: CrecerConBrilloImg,
-    size: "normal",
-    link: "https://brillopropio.onrender.com/"
-  },
-  {
-    client: "Proximamente...",
-    category: "Coming Soon",
-    image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2670&auto=format&fit=crop",
     size: "large",
-    link: ""
-  },
-  {
-    client: "Proximamente...",
-    category: "Coming Soon",
-    image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2670&auto=format&fit=crop",
-    size: "normal",
-    link: ""
-  },
-  {
-    client: "Proximamente...",
-    category: "Coming Soon",
-    image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2670&auto=format&fit=crop",
-    size: "normal",
-    link: ""
+    link: "https://brillopropio.onrender.com/"
   }
 ];
 
 const Projects: React.FC = () => {
   return (
     <PageWrapper className="pt-32 pb-20">
+      <SEO
+        title="Portafolio | RHEON® Diseño Web"
+        description="Explora nuestros proyectos de diseño y desarrollo web. Casos de éxito de empresas en Bogotá y Colombia que han transformado su presencia digital."
+      />
       <div className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row justify-between items-end mb-20">
           <div>
@@ -79,8 +72,9 @@ const Projects: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
+
                 className={`group relative rounded-3xl overflow-hidden ${project.link ? 'cursor-pointer' : ''} ${project.size === 'large' ? 'md:col-span-2 aspect-[21/9]' : 'aspect-[4/3]'
-                  }`}
+                  } `}
               >
                 <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors z-10"></div>
                 <img

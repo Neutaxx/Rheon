@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, ArrowUpRight, Clock, Banknote, Smartphone, LifeBuoy, MapPin, Globe, ShieldCheck, Zap, Layout } from 'lucide-react';
+import { ArrowRight, ArrowUpRight, Clock, Banknote, Smartphone, LifeBuoy, MapPin, Globe, ShieldCheck, Zap, Layout, Check, Code, Search, BarChart } from 'lucide-react';
+import SEO from '../components/SEO';
 import PageWrapper from '../components/PageWrapper';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
@@ -41,6 +42,12 @@ const Home: React.FC = () => {
 
   return (
     <PageWrapper>
+      <SEO
+        title="RHEON® | Diseño Web Profesional en Bogotá y Colombia"
+        description="Agencia digital experta en diseño web, desarrollo a medida y branding en Bogotá. Creamos sitios web rápidos y estéticos para empresas en Colombia."
+        keywords="diseño web bogota, desarrollo web colombia, agencia digital bogota, paginas web bogota"
+      />
+
       {/* HERO SECTION */}
       <section className="relative min-h-screen flex items-center justify-center pt-24 pb-20 overflow-hidden">
         {/* Background Gradients */}
@@ -364,7 +371,7 @@ const Home: React.FC = () => {
             className="p-8 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-sm"
           >
             <div className="mb-4 text-gray-400 text-sm font-bold tracking-wide">BÁSICO</div>
-            <div className="text-3xl font-bold mb-2">$400.000 <span className="text-sm font-normal text-gray-500">COP</span></div>
+            <div className="text-3xl font-bold mb-2">$429.000 <span className="text-sm font-normal text-gray-500">COP</span></div>
             <p className="text-sm text-gray-400 mb-6">Ideal para aterrizar tu primera idea en la web.</p>
             <ul className="text-sm space-y-3 text-gray-300 mb-8">
               <li className="flex gap-2"><div className="w-1.5 h-1.5 bg-brand-primary rounded-full mt-1.5"></div> Landing page</li>
@@ -382,7 +389,7 @@ const Home: React.FC = () => {
           >
             <div className="absolute top-4 right-4 px-3 py-1 bg-brand-primary text-white text-[10px] font-bold rounded-full uppercase">Popular</div>
             <div className="mb-4 text-brand-primary text-sm font-bold tracking-wide">PREMIUM</div>
-            <div className="text-3xl font-bold mb-2">$600.000 <span className="text-sm font-normal text-gray-500">COP</span></div>
+            <div className="text-3xl font-bold mb-2">$629.000 <span className="text-sm font-normal text-gray-500">COP</span></div>
             <p className="text-sm text-gray-400 mb-6">Para negocios que buscan crecer rápido.</p>
             <ul className="text-sm space-y-3 text-gray-300 mb-8">
               <li className="flex gap-2"><div className="w-1.5 h-1.5 bg-brand-primary rounded-full mt-1.5"></div> Multipágina</li>

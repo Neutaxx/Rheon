@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PageWrapper from '../components/PageWrapper';
 import { Check, Sparkles, ShieldCheck, HelpCircle, Calculator } from 'lucide-react';
+import SEO from '../components/SEO';
 import { motion, useMotionValue, useTransform } from 'framer-motion';
 
 const TiltCard = ({ children, className = "" }: { children: React.ReactNode, className?: string }) => {
@@ -48,6 +49,10 @@ const Pricing: React.FC = () => {
 
   return (
     <PageWrapper className="pt-32 pb-20">
+      <SEO
+        title="Precios Diseño Web | RHEON® Colombia"
+        description="Planes de diseño web transparentes y competitivos en Colombia. Desde landing pages hasta sitios corporativos completos. Cotiza tu proyecto hoy."
+      />
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h1 className="text-5xl md:text-7xl font-bold mb-6">Planes <span className="text-brand-primary">transparentes</span></h1>
@@ -65,9 +70,12 @@ const Pricing: React.FC = () => {
           <TiltCard className="group relative bg-[#110e22] border border-white/10 rounded-[2rem] p-8 hover:border-brand-primary/30 transition-all duration-300">
             <div className="mb-8 border-b border-white/10 pb-6">
               <h3 className="text-xl text-gray-300 font-medium mb-2">Básico</h3>
-              <div className="flex items-end gap-1 mb-4">
-                <span className="text-4xl lg:text-5xl font-bold text-white tracking-tighter">$400.000</span>
-                <span className="text-gray-500 mb-1 font-bold text-sm">COP</span>
+              <div className="mb-4">
+                <span className="block text-xs text-gray-500 uppercase tracking-wider mb-1">Desde</span>
+                <div className="flex items-end gap-1">
+                  <span className="text-4xl lg:text-5xl font-bold text-white tracking-tighter">$429.000</span>
+                  <span className="text-gray-500 mb-1 font-bold text-sm">COP</span>
+                </div>
               </div>
               <p className="text-sm text-gray-400 leading-relaxed">Perfecto para landing pages (una sola página) de alta conversión.</p>
             </div>
@@ -102,9 +110,12 @@ const Pricing: React.FC = () => {
             </div>
             <div className="mb-8 border-b border-white/10 pb-6">
               <h3 className="text-xl text-brand-primary font-medium mb-2">Premium</h3>
-              <div className="flex items-end gap-1 mb-4">
-                <span className="text-4xl lg:text-5xl font-bold text-white tracking-tighter">$600.000</span>
-                <span className="text-gray-500 mb-1 font-bold text-sm">COP</span>
+              <div className="mb-4">
+                <span className="block text-xs text-brand-primary/80 uppercase tracking-wider mb-1">Desde</span>
+                <div className="flex items-end gap-1">
+                  <span className="text-4xl lg:text-5xl font-bold text-white tracking-tighter">$629.000</span>
+                  <span className="text-gray-500 mb-1 font-bold text-sm">COP</span>
+                </div>
               </div>
               <p className="text-sm text-gray-400 leading-relaxed">Sitio web multipágina completo con diseño y funciones avanzadas.</p>
             </div>
