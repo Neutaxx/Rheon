@@ -6,37 +6,18 @@ import SEO from '../components/SEO';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Contact: React.FC = () => {
-  const [formState, setFormState] = useState({ name: '', email: '', message: '' });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
+  const [formState, setFormState] = useState({ name: '', plan: 'Básico', message: '' });
 
   const handleWhatsApp = () => {
     // Basic validation
-    if (!formState.name || !formState.email || !formState.message) {
+    if (!formState.name || !formState.message) {
       alert("Por favor completa todos los campos para continuar.");
       return;
     }
 
-    const text = `Hola, quiero una cotización para mi página web.\n\nNombre: ${formState.name} \nCorreo: ${formState.email} \nMensaje: ${formState.message} \n\nEnviado desde el formulario de RHEON®.`;
+    const text = `Hola, quiero una cotización para mi página web.\n\nNombre: ${formState.name} \nPlan de interés: ${formState.plan} \nMensaje: ${formState.message} \n\nEnviado desde el formulario de RHEON®.`;
     const url = `https://wa.me/573102885209?text=${encodeURIComponent(text)}`;
     window.open(url, '_blank');
-  };
-
-  const handleEmail = (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    // Simulate submission delay for UX, then open mailto
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setSubmitted(true);
-
-      const subject = "Cotización web RHEON®";
-      const body = `Hola Juan David,\nQuiero una cotización para mi proyecto.\n\nNombre: ${formState.name}\nCorreo: ${formState.email}\nMensaje: ${formState.message}\n\nEnviado desde el formulario de RHEON®.`;
-      window.location.href = `mailto:juand.neuta@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-
-      setFormState({ name: '', email: '', message: '' });
-    }, 1500);
   };
 
   return (
@@ -45,6 +26,16 @@ const Contact: React.FC = () => {
         title="Contacto | RHEON® Agencia Web Bogotá"
         description="¿Necesitas una página web? Contáctanos. Estamos en Bogotá y trabajamos con clientes en toda Colombia. Asesoría gratuita."
       />
+      <style>{`
+        input:-webkit-autofill,
+        input:-webkit-autofill:hover, 
+        input:-webkit-autofill:focus, 
+        input:-webkit-autofill:active {
+          -webkit-box-shadow: 0 0 0 30px #0B0915 inset !important;
+          -webkit-text-fill-color: white !important;
+          transition: background-color 5000s ease-in-out 0s;
+        }
+      `}</style>
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
@@ -90,89 +81,62 @@ const Contact: React.FC = () => {
             <div className="absolute top-0 right-0 w-64 h-64 bg-brand-primary/5 blur-[80px] rounded-full pointer-events-none"></div>
 
             <AnimatePresence mode="wait">
-              {submitted ? (
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.8 }}
-                  className="min-h-[400px] flex flex-col items-center justify-center text-center"
-                >
-                  <div className="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center text-white mb-6">
-                    <MessageCircle size={40} />
+              <form className="relative z-10 space-y-6">
+
+                <div className="space-y-2">
+                  <label className="text-sm font-medium text-gray-400 ml-1">Nombre</label>
+                  <input
+                    type="text"
+                    value={formState.name}
+                    onChange={(e) => setFormState({ ...formState, name: e.target.value })}
+                    className="w-full bg-[#0B0915] border border-white/10 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-brand-primary/50 focus:bg-white/5 transition-all placeholder:text-gray-600"
+                    placeholder="Tu nombre"
+                    required
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <label className="text-sm font-medium text-gray-400 ml-1">¿Cuál plan necesitas?</label>
+                  <div className="relative">
+                    <select
+                      value={formState.plan}
+                      onChange={(e) => setFormState({ ...formState, plan: e.target.value })}
+                      className="w-full bg-[#0B0915] border border-white/10 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-brand-primary/50 focus:bg-white/5 transition-all appearance-none cursor-pointer"
+                    >
+                      <option value="Básico" className="bg-[#0B0915] text-white">Plan Básico</option>
+                      <option value="Premium" className="bg-[#0B0915] text-white">Plan Premium</option>
+                      <option value="Personalizado" className="bg-[#0B0915] text-white">Plan Personalizado</option>
+                      <option value="Otro" className="bg-[#0B0915] text-white">Otro / No estoy seguro</option>
+                    </select>
+                    <div className="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none text-gray-400">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6" /></svg>
+                    </div>
                   </div>
-                  <h3 className="text-2xl font-bold mb-2">¡Mensaje Enviado!</h3>
-                  <p className="text-gray-400">Se ha abierto tu cliente de correo para finalizar el envío.</p>
+                </div>
+
+                <div className="space-y-2">
+                  <label className="text-sm font-medium text-gray-400 ml-1">Mensaje</label>
+                  <textarea
+                    value={formState.message}
+                    onChange={(e) => setFormState({ ...formState, message: e.target.value })}
+                    rows={4}
+                    className="w-full bg-[#0B0915] border border-white/10 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-brand-primary/50 focus:bg-white/5 transition-all placeholder:text-gray-600 resize-none"
+                    placeholder="Cuéntanos sobre tu proyecto..."
+                    required
+                  ></textarea>
+                </div>
+
+                <div className="pt-4">
                   <button
-                    onClick={() => setSubmitted(false)}
-                    className="mt-8 text-brand-primary hover:text-white transition-colors underline"
+                    type="button"
+                    onClick={handleWhatsApp}
+                    className="w-full bg-[#25D366] text-white font-bold py-4 rounded-xl hover:bg-[#20bd5a] transition-colors flex items-center justify-center gap-2 shadow-lg shadow-green-900/20"
                   >
-                    Enviar otro mensaje
+                    <MessageCircle size={24} /> Enviar por WhatsApp
                   </button>
-                </motion.div>
-              ) : (
-                <form onSubmit={handleEmail} className="relative z-10 space-y-6">
+                </div>
 
-                  <div className="space-y-2">
-                    <label className="text-sm font-medium text-gray-400 ml-1">Nombre</label>
-                    <input
-                      type="text"
-                      value={formState.name}
-                      onChange={(e) => setFormState({ ...formState, name: e.target.value })}
-                      className="w-full bg-[#0B0915] border border-white/10 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-brand-primary/50 focus:bg-white/5 transition-all placeholder:text-gray-600"
-                      placeholder="Tu nombre"
-                      required
-                    />
-                  </div>
-
-                  <div className="space-y-2">
-                    <label className="text-sm font-medium text-gray-400 ml-1">Correo</label>
-                    <input
-                      type="email"
-                      value={formState.email}
-                      onChange={(e) => setFormState({ ...formState, email: e.target.value })}
-                      className="w-full bg-[#0B0915] border border-white/10 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-brand-primary/50 focus:bg-white/5 transition-all placeholder:text-gray-600"
-                      placeholder="tu@empresa.com"
-                      required
-                    />
-                  </div>
-
-                  <div className="space-y-2">
-                    <label className="text-sm font-medium text-gray-400 ml-1">Mensaje</label>
-                    <textarea
-                      value={formState.message}
-                      onChange={(e) => setFormState({ ...formState, message: e.target.value })}
-                      rows={4}
-                      className="w-full bg-[#0B0915] border border-white/10 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-brand-primary/50 focus:bg-white/5 transition-all placeholder:text-gray-600 resize-none"
-                      placeholder="Cuéntanos sobre tu proyecto..."
-                      required
-                    ></textarea>
-                  </div>
-
-                  <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                    <button
-                      type="button"
-                      onClick={handleWhatsApp}
-                      className="flex-1 bg-[#25D366] text-white font-bold py-3.5 rounded-xl hover:bg-[#20bd5a] transition-colors flex items-center justify-center gap-2"
-                    >
-                      <MessageCircle size={20} /> Enviar por WhatsApp
-                    </button>
-                    <button
-                      type="submit"
-                      disabled={isSubmitting}
-                      className="flex-1 bg-white text-black font-bold py-3.5 rounded-xl hover:bg-gray-200 transition-colors flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
-                    >
-                      {isSubmitting ? (
-                        <span className="w-5 h-5 border-2 border-black/30 border-t-black rounded-full animate-spin"></span>
-                      ) : (
-                        <>
-                          <Mail size={20} /> Enviar por Correo
-                        </>
-                      )}
-                    </button>
-                  </div>
-
-                </form>
-              )}
+              </form>
             </AnimatePresence>
           </motion.div>
         </div>
